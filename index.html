@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DMDL Tannklinikk — GEO &amp; SEO-revisjon | Tiyan Digital</title>
+<meta name="description" content="Uavhengig GEO- og SEO-revisjon av dmdl.no: To av sidene til DMDL Tannklinikk i Kristiansand handler om trening — ikke tenner. 8 dokumenterte funn, sammenligning med OC Dronningens Tannlegesenter og en konkret fiksplan.">
+<meta property="og:title" content="Google viser pasientene dine et treningssenter — DMDL Tannklinikk revisjon">
+<meta property="og:description" content="Vi gikk gjennom dmdl.no side for side. To av sidene handler om trening — ikke tenner. Les de 8 funnene og fiksplanen.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0E3B2E">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* ============================================================
+   DMDL Tannklinikk — SEO/GEO teardown audit page
+   Design language: "Nordic spa-clinic"
+   Pine #0E3B2E / Sand #F2EAD9 / Coral #E4572E (emergency + CTA only)
+   Display: Space Grotesk · Body: Plus Jakarta Sans (local woff2)
+   BUSINESS_NAME constant: "DMDL Tannklinikk" — see JS const below.
+   ============================================================ */
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('assets/fonts/SpaceGrotesk-400.woff2') format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 800;font-display:swap;src:url('assets/fonts/PlusJakartaSans-400.woff2') format('woff2')}
+:root{
+  --pine:#0E3B2E; --pine-900:#002117; --pine-800:#09372B; --pine-700:#244E40;
+  --pine-600:#3C6657; --pine-500:#558070; --pine-300:#88B5A3; --pine-100:#BFECD9;
+  --sand:#F2EAD9; --sand-soft:#F8F3E8; --sand-deep:#E7DCC4;
+  --coral:#E4572E; --coral-dark:#C7431F;
+  --ink:#1A2621; --ink-soft:#3D4A44; --muted:#5C6B64;
+  --white:#FFFFFF; --line:rgba(14,59,46,.16); --line-light:rgba(242,234,217,.22);
+  --radius:24px; --radius-lg:32px;
+  --font-display:'Space Grotesk','Plus Jakarta Sans',system-ui,sans-serif;
+  --font-body:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--sand);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--coral);color:#fff}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+h2{font-size:clamp(30px,4.4vw,48px)}
+h3{font-size:clamp(21px,2.6vw,26px)}
+p{max-width:68ch}
+.wrap{width:min(1140px,100% - 40px);margin-inline:auto}
+section{padding:96px 0}
+@media(max-width:640px){section{padding:64px 0}body{font-size:16px}}
+
+/* ---------- labels (clean grotesque, never mono) ---------- */
+.eyebrow{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--pine-600)}
+.eyebrow--light{color:var(--pine-300)}
+.eyebrow--coral{color:var(--coral)}
+.section-head{margin-bottom:48px}
+.section-head h2{margin:14px 0 16px}
+.section-head p{color:var(--ink-soft);font-size:18px}
+.section-head--dark p{color:rgba(242,234,217,.82)}
+
+/* ---------- 1. sticky emergency strip ---------- */
+.strip{position:sticky;top:0;z-index:60;background:var(--coral);color:#fff;animation:strip-pulse 1.1s var(--ease) .2s 1}
+@keyframes strip-pulse{0%{filter:brightness(1.35)}100%{filter:brightness(1)}}
+.strip__inner{width:min(1140px,100% - 40px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.strip__text{font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.02em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.strip__dot{width:9px;height:9px;border-radius:50%;background:#fff;flex:none}
+.strip__cta{flex:none;background:#fff;color:var(--coral-dark);font-family:var(--font-display);font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;text-decoration:none;transition:transform .2s var(--ease),background .2s}
+.strip__cta:hover{transform:scale(1.04);background:var(--sand)}
+.strip__cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:640px){.strip__text{font-size:13.5px}.strip__cta{padding:9px 14px;font-size:13px}}
+
+/* ---------- 2. hero ---------- */
+.hero{background:var(--sand);padding:88px 0 96px;border-radius:0 0 48px 48px}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+@media(max-width:900px){.hero__grid{grid-template-columns:1fr;gap:44px}}
+.hero h1{font-size:clamp(42px,6.4vw,76px);margin:20px 0 22px}
+.hero h1 em{font-style:normal;color:var(--pine-600)}
+.hero__sub{font-size:19px;line-height:1.6;color:var(--ink-soft);max-width:56ch}
+.hero__sub strong{color:var(--ink)}
+.hero__actions{display:flex;align-items:center;gap:20px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;font-family:var(--font-display);font-weight:700;font-size:16px;text-decoration:none;border-radius:999px;padding:15px 28px;min-height:52px;transition:transform .2s var(--ease),background .2s,box-shadow .2s;cursor:pointer;border:2px solid transparent}
+.btn--coral{background:var(--coral);color:#fff}
+.btn--coral:hover{background:var(--coral-dark);transform:translateY(-2px)}
+.btn--pine{background:var(--pine);color:var(--sand)}
+.btn--pine:hover{background:var(--pine-800);transform:translateY(-2px)}
+.btn--ghost{border-color:var(--pine);color:var(--pine);background:transparent}
+.btn--ghost:hover{background:var(--pine);color:var(--sand)}
+.btn:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.hero__trust{margin-top:22px;font-size:14.5px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.hero__trust .tick{color:var(--pine-600);font-weight:800}
+
+/* evidence card */
+.evidence{background:var(--pine);color:var(--sand);border-radius:var(--radius-lg);padding:30px 30px 26px;box-shadow:0 24px 60px -24px rgba(14,59,46,.45);transform:rotate(.6deg)}
+.evidence__top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:18px}
+.evidence__url{font-family:var(--font-display);font-size:15px;font-weight:500;color:var(--pine-100);word-break:break-all}
+.evidence__badge{background:var(--coral);color:#fff;font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;flex:none}
+.evidence__label{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--pine-300);margin-bottom:12px}
+.evidence__code{font-family:var(--font-body);font-size:16.5px;line-height:1.9;color:var(--sand)}
+.evidence__code .ua{font-size:19px;color:#fff}
+.evidence__code .dim{color:var(--pine-300)}
+.evidence__foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--line-light);font-size:14px;color:var(--pine-300)}
+.evidence__foot strong{color:var(--sand);font-weight:600}
+
+/* placeholder image card */
+.ph{margin-top:22px;border:2px dashed var(--pine-500);border-radius:var(--radius);background:var(--sand-soft);overflow:hidden}
+.ph__art{height:150px;background:linear-gradient(135deg,var(--pine-100) 0%,var(--sand-deep) 55%,var(--pine-300) 100%);display:flex;align-items:center;justify-content:center;position:relative}
+.ph__art::after{content:"";position:absolute;inset:0;background:radial-gradient(120px 120px at 70% 30%,rgba(255,255,255,.55),transparent 70%)}
+.ph__art span{font-family:var(--font-display);font-size:44px;font-weight:700;color:var(--pine);opacity:.55;position:relative;z-index:1}
+.ph__cap{padding:14px 18px;font-size:14px;color:var(--ink-soft)}
+.ph__cap strong{color:var(--pine);font-weight:700}
+.ph__tag{display:inline-block;font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:4px}
+
+/* ---------- 3. findings ---------- */
+.findings{background:var(--sand-soft);border-radius:48px}
+.findings__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:820px){.finding__grid,.findings__grid{grid-template-columns:1fr}}
+.finding{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;gap:0;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.finding:hover{transform:translateY(-4px);box-shadow:0 20px 44px -20px rgba(14,59,46,.28)}
+.finding__head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px}
+.finding__num{font-family:var(--font-display);font-size:52px;font-weight:700;line-height:.9;color:var(--pine-100);letter-spacing:-.04em}
+.finding__tag{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px;border-radius:999px;flex:none}
+.finding__tag--kritisk{background:var(--coral);color:#fff}
+.finding__tag--struktur{background:var(--pine);color:var(--sand)}
+.finding__tag--geo{background:var(--pine-100);color:var(--pine-900)}
+.finding__tag--tillit{background:var(--sand-deep);color:var(--pine-900)}
+.finding__tag--bruker{background:#F6C9B8;color:#7A2A12}
+.finding__tag--merke{background:var(--pine-300);color:var(--pine-900)}
+.finding__tag--seo{background:#F3E3C2;color:#6B4E00}
+.finding h3{margin-bottom:16px}
+.finding__block{padding-top:14px;border-top:1px solid var(--line)}
+.finding__block + .finding__block{margin-top:14px}
+.finding__k{font-family:var(--font-display);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--pine-600);margin-bottom:6px}
+.finding__block p{font-size:15.5px;color:var(--ink-soft)}
+.finding__block p strong{color:var(--ink)}
+.finding__src{font-size:13.5px;color:var(--muted);margin-top:14px}
+.finding__src code{font-family:var(--font-body);background:var(--sand);padding:2px 7px;border-radius:6px;font-size:13px;color:var(--pine-800)}
+
+/* quotes inside finding 05 */
+.quotes{margin-top:16px;display:grid;gap:10px}
+.quote{background:var(--sand-soft);border-left:4px solid var(--pine-600);border-radius:0 14px 14px 0;padding:12px 16px}
+.quote p{font-size:15px;color:var(--ink)}
+.quote cite{display:block;font-style:normal;font-size:13px;color:var(--muted);margin-top:6px}
+.placeholder-note{margin-top:16px;font-size:13.5px;color:var(--muted);background:var(--sand);border-radius:12px;padding:12px 14px}
+.placeholder-note strong{color:var(--pine-800)}
+
+/* ---------- 4. comparison ---------- */
+.compare{background:var(--pine);color:var(--sand);border-radius:48px}
+.compare h2{color:var(--sand)}
+.compare__table{display:grid;grid-template-columns:200px 1fr 1fr;gap:0;border:1px solid var(--line-light);border-radius:var(--radius);overflow:hidden}
+@media(max-width:820px){.compare__table{grid-template-columns:1fr}.compare__row-label{border-bottom:1px solid var(--line-light)}}
+.compare__cell{padding:22px 24px;font-size:15.5px;line-height:1.6}
+.compare__cell--head{background:var(--pine-800);font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:-.01em}
+.compare__cell--head.dmdl{background:var(--pine-700)}
+.compare__cell--head.oc{background:var(--pine-300);color:var(--pine-900)}
+.compare__row-label{font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--pine-300);display:flex;align-items:center}
+.compare__cell--dmdl{background:rgba(228,87,46,.10);border-top:1px solid var(--line-light)}
+.compare__cell--oc{background:rgba(242,234,217,.06);border-top:1px solid var(--line-light)}
+.compare__cell--dmdl p,.compare__cell--oc p{color:rgba(242,234,217,.9)}
+.compare__cell--dmdl .flag{color:#FF9B7A;font-weight:700}
+.compare__cell--oc .flag{color:var(--pine-100);font-weight:700}
+.compare__note{margin-top:22px;font-size:14px;color:var(--pine-300);max-width:78ch}
+.compare__note strong{color:var(--sand)}
+
+/* ---------- 5. fix plan ---------- */
+.plan__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+@media(max-width:900px){.plan__grid{grid-template-columns:1fr}}
+.tier{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column;position:relative}
+.tier--featured{background:var(--pine);color:var(--sand);border-color:var(--pine);box-shadow:0 28px 60px -24px rgba(14,59,46,.5)}
+.tier__step{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pine-600)}
+.tier--featured .tier__step{color:var(--pine-300)}
+.tier__name{font-family:var(--font-display);font-size:30px;font-weight:700;letter-spacing:-.02em;margin:8px 0 4px}
+.tier__level{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.tier--featured .tier__level{color:var(--pine-300)}
+.tier__desc{font-size:16px;color:var(--ink-soft);margin-bottom:22px}
+.tier--featured .tier__desc{color:rgba(242,234,217,.88)}
+.tier__list{list-style:none;display:grid;gap:12px;margin-bottom:24px}
+.tier__list li{display:flex;gap:10px;font-size:15.5px;line-height:1.5;color:var(--ink-soft)}
+.tier--featured .tier__list li{color:rgba(242,234,217,.92)}
+.tier__list li::before{content:"✓";flex:none;font-weight:800;color:var(--pine-600)}
+.tier--featured .tier__list li::before{color:var(--pine-100)}
+.tier__goal{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.tier--featured .tier__goal{border-color:var(--line-light);color:rgba(242,234,217,.85)}
+.tier__goal strong{display:block;font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--pine);margin-bottom:4px}
+.tier--featured .tier__goal strong{color:var(--pine-100)}
+.tier__ribbon{position:absolute;top:-14px;right:22px;background:var(--coral);color:#fff;font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.plan__note{margin-top:28px;font-size:14.5px;color:var(--muted);max-width:78ch}
+.plan__note strong{color:var(--pine-800)}
+
+/* ---------- 6. preview panels ---------- */
+.preview{background:var(--sand-soft);border-radius:48px}
+.preview__stack{display:grid;gap:28px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:36px;overflow:hidden}
+@media(max-width:640px){.panel{padding:26px 20px}}
+.panel__label{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pine-600);margin-bottom:18px}
+.panel--dark{background:var(--pine);color:var(--sand);border-color:var(--pine)}
+.panel--dark .panel__label{color:var(--pine-300)}
+.panel--dark h3{color:var(--sand)}
+.panel__hero-kicker{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:.06em;color:var(--pine-300);margin-bottom:12px}
+.panel--dark p{color:rgba(242,234,217,.88)}
+.panel__chips{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.chip{font-family:var(--font-display);font-size:13.5px;font-weight:600;background:rgba(242,234,217,.12);border:1px solid var(--line-light);color:var(--sand);padding:8px 14px;border-radius:999px}
+.panel__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.panel--dark .btn--coral{box-shadow:0 10px 24px -8px rgba(228,87,46,.6)}
+.panel__note{margin-top:20px;font-size:13.5px;color:var(--pine-300)}
+
+/* treatment grid */
+.treat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+@media(max-width:900px){.treat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.treat-grid{grid-template-columns:1fr}}
+.treat{background:var(--sand-soft);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:6px;text-decoration:none;transition:transform .2s var(--ease),border-color .2s}
+.treat:hover{transform:translateY(-3px);border-color:var(--pine-500)}
+.treat h4{font-family:var(--font-display);font-size:16.5px;font-weight:700;letter-spacing:-.01em}
+.treat p{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+.treat__price{font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--pine);margin-top:auto;padding-top:8px}
+.treat__link{font-size:13px;color:var(--pine-600);font-weight:600}
+
+/* FAQ accordion */
+.faq{margin-top:8px;border-top:1px solid var(--line)}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__q{width:100%;background:none;border:0;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 4px;cursor:pointer;font-family:var(--font-display);font-size:17.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.faq__q:hover{color:var(--pine)}
+.faq__q:focus-visible{outline:3px solid var(--coral);outline-offset:2px;border-radius:8px}
+.faq__icon{flex:none;width:32px;height:32px;border-radius:50%;border:1.5px solid var(--pine-600);color:var(--pine);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:400;transition:transform .3s var(--ease),background .3s,color .3s}
+.faq__item.open .faq__icon{transform:rotate(45deg);background:var(--pine);color:var(--sand)}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.faq__a p{padding:0 4px 22px;font-size:15.5px;color:var(--ink-soft);max-width:72ch}
+.faq__a strong{color:var(--ink)}
+.panel__schema{margin-top:18px;font-size:13.5px;color:var(--muted);background:var(--sand-soft);border-radius:12px;padding:12px 16px}
+.panel__schema strong{color:var(--pine-800)}
+
+/* ---------- 7. prices ---------- */
+.prices__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:820px){.prices__grid{grid-template-columns:1fr}}
+.price-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;text-align:left}
+.price-card--featured{background:var(--pine);color:var(--sand);border-color:var(--pine)}
+.price-card__kicker{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pine-600)}
+.price-card--featured .price-card__kicker{color:var(--pine-300)}
+.price-card__amount{font-family:var(--font-display);font-size:clamp(44px,5vw,58px);font-weight:700;letter-spacing:-.04em;line-height:1;margin:14px 0 6px}
+.price-card__amount small{font-size:22px;letter-spacing:0}
+.price-card__name{font-family:var(--font-display);font-size:18px;font-weight:600}
+.price-card p{font-size:15px;color:var(--ink-soft);margin-top:10px}
+.price-card--featured p{color:rgba(242,234,217,.85)}
+.price-card__src{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.price-card--featured .price-card__src{border-color:var(--line-light);color:var(--pine-300)}
+
+/* ---------- 8. next step + contact + footer ---------- */
+.next{background:var(--pine);color:var(--sand);border-radius:48px 48px 0 0}
+.next h2{color:var(--sand)}
+.next__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+@media(max-width:900px){.next__grid{grid-template-columns:1fr;gap:44px}}
+.next p.lede{font-size:18px;color:rgba(242,234,217,.88);margin-top:16px}
+.next__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.contact{background:rgba(242,234,217,.07);border:1px solid var(--line-light);border-radius:var(--radius);padding:30px}
+.contact h3{color:var(--sand);font-size:20px;margin-bottom:20px}
+.contact__row{display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--line-light);font-size:15.5px}
+.contact__row:first-of-type{border-top:0}
+.contact__k{flex:none;width:110px;font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pine-300);padding-top:3px}
+.contact__row a{color:var(--sand);text-decoration:underline;text-underline-offset:3px}
+.contact__row a:hover{color:#fff}
+.contact__team{margin-top:18px;font-size:14.5px;color:rgba(242,234,217,.85);line-height:1.7}
+.contact__team strong{color:var(--sand)}
+.footer{padding:44px 0 56px}
+.footer__inner{display:flex;flex-direction:column;gap:22px}
+.footer__brand{font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-.02em}
+.footer__note{font-size:14px;color:var(--muted);max-width:72ch}
+.footer__links{display:flex;gap:8px;flex-wrap:wrap}
+.footer__links a{font-family:var(--font-display);font-size:13.5px;font-weight:600;color:var(--pine-800);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;background:var(--sand-soft);transition:background .2s,color .2s}
+.footer__links a:hover{background:var(--pine);color:var(--sand)}
+.footer__legal{font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}
+.method{font-size:13.5px;color:var(--muted);line-height:1.7}
+.method strong{color:var(--pine-800)}
+
+/* reveal motion (calm, spa-like; hidden state ONLY when JS runs — no-JS = fully visible) */
+@media (prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .js .reveal.in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 1 · Sticky emergency strip -->
+<div class="strip" id="vakt" role="region" aria-label="Tannlegevakt">
+  <div class="strip__inner">
+    <p class="strip__text"><span class="strip__dot" aria-hidden="true"></span> Tannlegevakt kveld &amp; helg — 940 99 933 — Festningsgata 39, Kristiansand</p>
+    <a class="strip__cta" href="tel:+4794099933">Ring akuttvakt</a>
+  </div>
+</div>
+
+<main>
+<!-- 2 · Hero -->
+<header class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <p class="eyebrow">Diagnostisk GEO &amp; SEO-revisjon · Festningsgata 39</p>
+      <h1>Google viser pasientene dine et <em>treningssenter.</em></h1>
+      <p class="hero__sub">Vi gikk gjennom <strong>dmdl.no</strong> side for side. To av sidene deres handler om trening — ikke tenner. Når akuttpasienter og søkemotorer søker etter behandling i Kristiansand, møtes de av en mal-lekkasje.</p>
+      <div class="hero__actions">
+        <a class="btn btn--coral" href="#funnene">Se alle funnene ↓</a>
+        <a class="btn btn--ghost" href="#fiksplanen">Se fiksplanen</a>
+      </div>
+      <p class="hero__trust"><span class="tick">✓</span> Verifiserte data fra dmdl.no — hvert funn er hentet fra deres egne, åpne sider.</p>
+    </div>
+    <div>
+      <figure class="evidence" aria-label="Bevis: innholdet på dmdl.no/en/dental-treatments/">
+        <div class="evidence__top">
+          <span class="evidence__url">dmdl.no/en/dental-treatments/</span>
+          <span class="evidence__badge">Lekkasje</span>
+        </div>
+        <p class="evidence__label">Faktisk kildekode / nettsted-tekst</p>
+        <div class="evidence__code">
+          <p class="ua">«ВИВОДИМО ПОСТИ НА СТОРІНЦІ»</p>
+          <p><span class="dim">&gt;</span> “Outdoor running”</p>
+          <p><span class="dim">&gt;</span> “Plyometrics”</p>
+          <p><span class="dim">&gt;</span> “Crossfit workout of the day”</p>
+        </div>
+        <figcaption class="evidence__foot"><strong>Tema:</strong> WordPress treningsmal — på en tannlegeside.</figcaption>
+      </figure>
+      <div class="ph">
+        <div class="ph__art" role="img" aria-label="Bildeplassholder: klinikkinteriør"><span>DMDL</span></div>
+        <p class="ph__cap"><span class="ph__tag">Bildeplassholder</span><br><strong>Klinikkinteriør, Festningsgata 39.</strong> Ekte foto fra behandlingsrom i 2. etasje mangler i Google-indeksen — bildet over er en plassholder, ikke et foto fra klinikken.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 3 · Funnene -->
+<section class="findings" id="funnene" aria-labelledby="funnene-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Diagnostisk logg · 8 observasjoner</p>
+      <h2 id="funnene-h">Funnene: Årsaken til digital lekkasje</h2>
+      <p>Hvert funn er dokumentert direkte fra DMDL Tannklinikks åpne nettsider, med konkret vurdering av pasienttap og tilhørende teknisk løsning.</p>
+    </div>
+    <div class="findings__grid">
+
+      <article class="finding reveal">
+        <div class="finding__head"><span class="finding__num">01</span><span class="finding__tag finding__tag--kritisk">Kritisk</span></div>
+        <h3>Template-lekkasje: Treningsstudio-tekst på tannlegesiden</h3>
+        <div class="finding__block"><p class="finding__k">Det vi så</p><p>På <strong>dmdl.no/en/dental-treatments/</strong> ligger en ukrainsk overskrift: «ВИВОДИМО ПОСТИ НА СТОРІНЦІ» — etterfulgt av linjene «Outdoor running», «Plyometrics» og «Crossfit workout of the day», et Michael Jordan-sitat og et ødelagt påmeldingsskjema.</p></div>
+        <div class="finding__block"><p class="finding__k">Hvorfor det koster pasienter</p><p>Googles crawlere klassifiserer siden som ufullstendig spam eller sport/fitness — ikke tannhelse. En pasient som lander her, ser et treningssenter, ikke en tannlege, og forlater siden.</p></div>
+        <div class="finding__block"><p class="finding__k">Fiksen</p><p>Slett hele mal-innholdet og bygg siden på nytt som en ekte behandlingsside, med dedikerte undersider for hver behandling og korrekt strukturert data.</p></div>
+        <p class="finding__src">Kilde: <code>dmdl.no/en/dental-treatments/</code> · datert 23.10.2023</p>
+      </article>
+
+      <article class="finding reveal">
+        <div class="finding__head"><span class="finding__num">02</span><span class="finding__tag finding__tag--kritisk">Kritisk</span></div>
+        <h3>«More about me»-siden: Lorem ipsum &amp; Las Vegas</h3>
+        <div class="finding__block"><p class="finding__k">Det vi så</p><p>På <strong>dmdl.no/en/about/</strong> finner man standard lorem ipsum-avsnitt, fiktive referanser til «Brad Johnson Las Vegas» og gjentatte elementer fra «Crossfit workout of the day».</p></div>
+        <div class="finding__block"><p class="finding__k">Hvorfor det koster pasienter</p><p>Total brist på Google E-E-A-T (erfaring, ekspertise, autoritet, troverdighet). Siden som skal bevise at klinikken er ekte, beviser det motsatte.</p></div>
+        <div class="finding__block"><p class="finding__k">Fiksen</p><p>Erstatt siden med ekte faglige biografier for <strong>Dmitrij Chaustovic (MNTF)</strong> og <strong>Tor Erling Jahnsen (35+ års erfaring)</strong> — med utdanning, medlemskap og assistent <strong>Noori Malik</strong>.</p></div>
+        <p class="finding__src">Kilde: <code>dmdl.no/en/about/</code> · datert 25.09.2023</p>
+      </article>
+
+      <article class="finding reveal">
+        <div class="finding__head"><span class="finding__num">03</span><span class="finding__tag finding__tag--struktur">Struktur</span></div>
+        <h3>Ingen egne behandlingssider: 12 stikkord på forsiden</h3>
+        <div class="finding__block"><p class="finding__k">Det vi så</p><p>12 kliniske behandlinger — rotfylling, bedøvelse, fasetter, ising, kirurgi, krone, proteser, rens, tannbleking, tannkjøttbetennelse, fylling og tannlegeskrekk — er kun enkeltord på forsiden, uten sider bak seg.</p></div>
+        <div class="finding__block"><p class="finding__k">Hvorfor det koster pasienter</p><p>Google har ingenting å rangere for «implantat Kristiansand», «tannlegevakt Kristiansand» eller «tannlegeskrekk Kristiansand» — og AI-søkemotorer har ingen svar å sitere.</p></div>
+        <div class="finding__block"><p class="finding__k">Fiksen</p><p>Bygg én dedikert side per behandling, med egen URL, egen pris og egen FAQ — slik at hver behandling kan vinne sitt eget søk.</p></div>
+        <p class="finding__src">Kilde: <code>dmdl.no</code> · forsiden</p>
+      </article>
+
+      <article class="finding reveal">
+        <div class="finding__head"><span class="finding__num">04</span><span class="finding__tag finding__tag--geo">GEO / AI</span></div>
+        <h3>Ingen FAQ og ingen strukturert data (schema)</h3>
+        <div class="finding__block"><p class="finding__k">Det vi så</p><p>Nettstedet mangler JSON-LD-skjemaer for Dentist, MedicalBusiness og FAQPage. Det finnes ingen strukturert spørsmål-og-svar-seksjon — forsiden avslutter med uformaterte spørsmål-og-svar-avsnitt uten overskrifter eller trekkspill.</p></div>
+        <div class="finding__block"><p class="finding__k">Hvorfor det koster pasienter</p><p>Dere er usynlige i moderne AI-svar (Perplexity, ChatGPT Search, Google AI Overviews). Når en pasient spør en AI om tannlegevakt i Kristiansand, finnes det ingen DMDL-svar å sitere.</p></div>
+        <div class="finding__block"><p class="finding__k">Fiksen</p><p>Legg til en ekte FAQ-seksjon med FAQPage-schema og LocalBusiness/Dentist-schema, slik at Google og AI-søkemotorer kan sitere klinikken direkte.</p></div>
+        <p class="finding__src">Kilde: <code>dmdl.no</code> · forsiden og sidekilde</p>
+      </article>
+
+      <article class="finding reveal">
+        <div class="finding__head"><span class="finding__num">05</span><span class="finding__tag finding__tag--tillit">Tillit</span></div>
+        <h3>Ingen Google-anmeldelser integrert på nett</h3>
+        <div class="finding__block"><p class="finding__k">Det vi så</p><p>Ingen kobling til Google Maps/Places API eller dynamisk stjernerangering. Kun 3 manuelle sitater fra dmdl.no — uten lenke til å legge igjen en anmeldelse.</p></div>
+        <div class="finding__block"><p class="finding__k">Hvorfor det koster pasienter</p><p>Pasienter velger tannlege etter anmeldelser. Tre skrevne sitater uten verifiserbar kilde veier lite mot konkurrenter med integrerte Google-omtaler.</p></div>
+        <div class="finding__block"><p class="finding__k">Fiksen</p><p>Etabler en verifisert lenke til Google-anmeldelser, vis rangeringen dynamisk på nettstedet, og bygg en automatisert anmeldelsesflyt etter hver timebestilling.</p></div>
+        <div class="quotes">
+          <blockquote class="quote"><p>«Veldig fornøyd med behandlingen og oppfølgingen.»</p><cite>— Erik S. Tsovard (fra dmdl.no)</cite></blockquote>
+          <blockquote class="quote"><p>«Trygg og god opplevelse hos tannlegen.»</p><cite>— Nicolai Bjerke Dybdahl (fra dmdl.no)</cite></blockquote>
+          <blockquote class="quote"><p>«Rask hjelp på kveldstid da jeg trengte akutt tannlege.»</p><cite>— Mikael Skaarland (fra dmdl.no)</cite></blockquote>
+        </div>
+        <p class="placeholder-note"><strong>Google-anmeldelsestall: [PLACEHOLDER]</strong> · Org.nr: [PLACEHOLDER] — ingen oppdiktede stjerner eller tall er brukt på denne siden.</p>
+        <p class="finding__src">Kilde: <code>dmdl.no</code> · forsiden</p>
+      </article>
+
+      <article class="finding reveal">
+        <div class="finding__head"><span class="finding__num">06</span><span class="finding__tag finding__tag--bruker">Brukeropplevelse</span></div>
+        <h3>Motstridende åpningstider på tvers av sidene</h3>
+        <div class="finding__block"><p class="finding__k">Det vi så</p><p>Forsiden oppgir åpningstidene <strong>08:30–16:00</strong>, mens klinikkens prisside oppgir <strong>08:00–20:00</strong> og lørdag–søndag 10:00–13:00.</p></div>
+        <div class="finding__block"><p class="finding__k">Hvorfor det koster pasienter</p><p>Akuttpasienter med tannpine klokken 17:00 tror klinikken er stengt og ringer en konkurrent. Motstridende tider svekker også Googles tillit til klinikkens lokale data.</p></div>
+        <div class="finding__block"><p class="finding__k">Fiksen</p><p>Synkroniser åpningstidene på tvers av hele nettstedet — og i Google Bedriftsprofil — med én sannhet: ordinær tid og akuttvakt kveld, helg og helligdager.</p></div>
+        <p class="finding__src">Kilde: <code>dmdl.no</code> · forsiden og prissiden</p>
+      </article>
+
+      <article class="finding reveal">
+        <div class="finding__head"><span class="finding__num">07</span><span class="finding__tag finding__tag--merke">Merkevare</span></div>
+        <h3>Daterte stockbilder fra 2023</h3>
+        <div class="finding__block"><p class="finding__k">Det vi så</p><p>Nettstedet preges av generiske arkivbilder fra 2023. Det finnes nesten ingen faktiske bilder av Dmitrij Chaustovic og Tor Erling Jahnsen — kun to nyere foto på Om-oss-siden.</p></div>
+        <div class="finding__block"><p class="finding__k">Hvorfor det koster pasienter</p><p>Pasienter med tannlegeskrekk velger mennesker de kan se. Arkivbilder bygger ingen tillit — ekte ansikter og ekte rom gjør det.</p></div>
+        <div class="finding__block"><p class="finding__k">Fiksen</p><p>Ekte fotografering av klinikken i Festningsgata 39: behandlingsrom, resepsjon og teamet — Dmitrij Chaustovic, Tor Erling Jahnsen og Noori Malik.</p></div>
+        <p class="finding__src">Kilde: <code>dmdl.no</code> · bildearkiv, opplastet 2023</p>
+      </article>
+
+      <article class="finding reveal">
+        <div class="finding__head"><span class="finding__num">08</span><span class="finding__tag finding__tag--seo">SEO-tap</span></div>
+        <h3>Mangler lokale landingssider i Kristiansand</h3>
+        <div class="finding__block"><p class="finding__k">Det vi så</p><p>Det finnes ingen egne landingssider optimalisert for høyvolumsøk som «tannlegevakt Kristiansand», «akutt tannlege Kristiansand» eller «implantat Kristiansand».</p></div>
+        <div class="finding__block"><p class="finding__k">Hvorfor det koster pasienter</p><p>De mest verdifulle lokale søkene går til klinikker som har en side for hvert søk. Uten landingssider er DMDL usynlig akkurat når pasienten trenger hjelp.</p></div>
+        <div class="finding__block"><p class="finding__k">Fiksen</p><p>Bygg 3 lokale landingssider for Kristiansand (akutt/vakt/implantat) med adresse, åpningstider, priser og FAQ — optimalisert for Google Maps og lokale søk.</p></div>
+        <p class="finding__src">Kilde: <code>dmdl.no</code> · sidestruktur</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Sammenligningen -->
+<section class="compare" id="sammenligning" aria-labelledby="sammenligning-h">
+  <div class="wrap">
+    <div class="section-head section-head--dark reveal">
+      <p class="eyebrow eyebrow--light">Konkurranseanalyse · Kristiansand sentrum</p>
+      <h2 id="sammenligning-h">Sammenligningen: DMDL vs. OC Dronningens Tannlegesenter</h2>
+      <p>Faktisk sammenligning basert utelukkende på verifiserte observasjoner mellom DMDL (Festningsgata 39) og OC Dronningens Tannlegesenter (Dronningensgt. 4, Kristiansand — 30+ års erfaring, 5 tannleger, priser oppdatert 01.01.2026).</p>
+    </div>
+    <div class="compare__table reveal" role="table" aria-label="Sammenligning DMDL mot OC Dronningens Tannlegesenter">
+      <div class="compare__cell compare__cell--head" role="columnheader"></div>
+      <div class="compare__cell compare__cell--head dmdl" role="columnheader">DMDL — nåværende status</div>
+      <div class="compare__cell compare__cell--head oc" role="columnheader">OC Dronningens — benchmark</div>
+
+      <div class="compare__cell compare__row-label" role="rowheader">Team-sider</div>
+      <div class="compare__cell compare__cell--dmdl" role="cell"><p><span class="flag">Mangler.</span> Ingen dedikerte faglige profiler for Dmitrij Chaustovic og Tor Erling Jahnsen. «About»-siden inneholder lorem ipsum.</p></div>
+      <div class="compare__cell compare__cell--oc" role="cell"><p><span class="flag">På plass.</span> Strukturerte og detaljerte biografier for 5 faste tannleger med spesialkompetanse og faglige roller.</p></div>
+
+      <div class="compare__cell compare__row-label" role="rowheader">Prisoppdatering</div>
+      <div class="compare__cell compare__cell--dmdl" role="cell"><p><span class="flag">Ustrukturert.</span> Prisoppsett med motstridende tidsangivelser (08:30–16:00 mot 08:00–20:00).</p></div>
+      <div class="compare__cell compare__cell--oc" role="cell"><p><span class="flag">Transparent.</span> Komplett prisliste eksplisitt oppdatert 01.01.2026, i henhold til myndighetskrav.</p></div>
+
+      <div class="compare__cell compare__row-label" role="rowheader">Google-anmeldelser</div>
+      <div class="compare__cell compare__cell--dmdl" role="cell"><p><span class="flag">Kun 3 sitater.</span> Statiske, manuelle sitater fra dmdl.no (Tsovard, Dybdahl, Skaarland). Ingen API-kobling.</p></div>
+      <div class="compare__cell compare__cell--oc" role="cell"><p><span class="flag">Integrert.</span> Kundeomtaler med aktiv oppfordring og høy sosial troverdighet, koblet til Google.</p></div>
+
+      <div class="compare__cell compare__row-label" role="rowheader">Lokale søketreff</div>
+      <div class="compare__cell compare__cell--dmdl" role="cell"><p><span class="flag">Svak.</span> Svak organisk synlighet på spesialiserte fraser, grunnet mangel på dedikerte behandlings- og nødlandingssider.</p></div>
+      <div class="compare__cell compare__cell--oc" role="cell"><p><span class="flag">Sterk.</span> Sterk dominans i Google Map Pack og lokale søk i Kvadraturen, grunnet grundig SEO-struktur over tid.</p></div>
+    </div>
+    <p class="compare__note reveal"><strong>Ingen tall er oppfunnet her:</strong> Sammenligningen bygger kun på det hver klinikk faktisk publiserer på sine egne nettsider. OC Dronningens er ikke målet — de viser hva som er mulig i samme by, med samme pasienter.</p>
+  </div>
+</section>
+
+<!-- 5 · Fiksplanen -->
+<section id="fiksplanen" aria-labelledby="fiksplanen-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Handlingsplan · Catalog V3</p>
+      <h2 id="fiksplanen-h">Fiksplanen: Fra lekkasje til lokal dominans</h2>
+      <p>Tre trinn, i rekkefølge. Hvert trinn fjerner et konkret tap — og bygger videre på det forrige.</p>
+    </div>
+    <div class="plan__grid">
+      <article class="tier reveal">
+        <p class="tier__step">Trinn 01</p>
+        <h3 class="tier__name">Krisefiks</h3>
+        <p class="tier__level">Basic</p>
+        <p class="tier__desc">Stopp akutt pasienttap og rens nettsiden for all malstøy.</p>
+        <ul class="tier__list">
+          <li>Slett ukrainsk template og treningsstudio-tekst</li>
+          <li>Fjern lorem ipsum og «Brad Johnson Las Vegas»</li>
+          <li>Synkroniser åpningstider på tvers av nettstedet</li>
+          <li>Legg til grunnleggende FAQ og FAQ-skjema (Schema.org)</li>
+          <li>Etabler verifisert lenke til Google-anmeldelser</li>
+        </ul>
+        <p class="tier__goal"><strong>Mål: Null tekniske feil</strong>Fjerner umiddelbar Google-straff.</p>
+      </article>
+
+      <article class="tier tier--featured reveal">
+        <span class="tier__ribbon">Anbefalt strategi</span>
+        <p class="tier__step">Trinn 02</p>
+        <h3 class="tier__name">Gjenoppbygging</h3>
+        <p class="tier__level">Standard</p>
+        <p class="tier__desc">Fullverdig klinisk redesign for overbevisende pasientkonvertering.</p>
+        <ul class="tier__list">
+          <li>Alt i Basic inkludert</li>
+          <li>Bygg dedikerte undersider for alle 12 behandlingene</li>
+          <li>Ekte fotografering av klinikken i Festningsgata 39</li>
+          <li>Fullt LocalBusiness/Dentist strukturert data-oppsett</li>
+          <li>3 lokale landingssider for Kristiansand (akutt/vakt/implantat)</li>
+        </ul>
+        <p class="tier__goal"><strong>Mål: Fullverdig klinisk autoritet</strong>Rangere i topp 3 for lokale søk.</p>
+      </article>
+
+      <article class="tier reveal">
+        <p class="tier__step">Trinn 03</p>
+        <h3 class="tier__name">Markedsleder</h3>
+        <p class="tier__level">Premium</p>
+        <p class="tier__desc">Sikre forsprang i nye AI-søkemotorer og kontinuerlig pasientvekst.</p>
+        <ul class="tier__list">
+          <li>Alt i Basic og Standard inkludert</li>
+          <li>GEO/AI-svar innholdsmotor for Perplexity &amp; ChatGPT</li>
+          <li>Automatisert anmeldelsesflyt etter timebestilling</li>
+          <li>Månedlig lokal SEO-revisjon og posisjonsovervåking</li>
+          <li>Kontinuerlig teknisk drift og konverteringsoptimalisering</li>
+        </ul>
+        <p class="tier__goal"><strong>Mål: Total regional synlighet</strong>Foretrukket valg for nød- og tannbehandling i Agder.</p>
+      </article>
+    </div>
+    <p class="plan__note reveal"><strong>Pris for fiksplanen:</strong> Fast pris avtales etter den 15-minutters gjennomgangen — omfanget avhenger av hvor mange av de 12 behandlingssidene og landingssidene dere vil ha først. Ingen skjulte kostnader, og dere får alltid et skriftlig kostnadsoverslag før arbeidet starter.</p>
+  </div>
+</section>
+
+<!-- 6 · Slik ser den nye siden ut -->
+<section class="preview" id="forhandsvisning" aria-labelledby="forhandsvisning-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Konseptuell forhåndsvisning · UI/UX mockups</p>
+      <h2 id="forhandsvisning-h">Slik ser den nye siden ut</h2>
+      <p>Tre skisser av den foreslåtte nye siden — samme klinikk, samme priser, nytt uttrykk. Dette er konsepter, ikke den ferdige siden.</p>
+    </div>
+    <div class="preview__stack">
+
+      <article class="panel panel--dark reveal">
+        <p class="panel__label">Panel A · Ny hero-seksjon (foreslått uttrykk) · Skisse A</p>
+        <p class="panel__hero-kicker">Kristiansand tannlegevakt · Sentralt i Kvadraturen</p>
+        <h3>Tannhelse med ro, trygghet og umiddelbar akutthjelp.</h3>
+        <p style="margin-top:14px">Velkommen til <span data-biz>DMDL Tannklinikk</span> i Festningsgata 39. Tor Erling Jahnsen har over 35 års erfaring, og sammen med Dmitrij Chaustovic og assistent Noori Malik tar teamet imot både nye og akutte pasienter — kveld, helg og helligdager.</p>
+        <div class="panel__chips"><span class="chip">Festningsgata 39, 2. etg</span><span class="chip">Kveld- og helgevakt</span></div>
+        <div class="panel__actions">
+          <a class="btn btn--coral" href="tel:+4794099933">Akuttvakt: 940 99 933</a>
+          <a class="btn btn--ghost" href="#neste-steg" style="border-color:var(--sand);color:var(--sand)">Bestill ordinær time</a>
+        </div>
+        <p class="panel__note">[Bildeplassholder: Resepsjon, Festningsgata 39 — ekte foto leveres av klinikken.]</p>
+      </article>
+
+      <article class="panel reveal">
+        <p class="panel__label">Panel B · Behandlingsrutenett (12 spesialiserte sider) · Skisse B</p>
+        <h3>Strukturerte kliniske tjenester med egne URL-er</h3>
+        <div class="treat-grid" style="margin-top:22px">
+          <a class="treat" href="#forhandsvisning"><h4>Undersøkelse &amp; rens</h4><p>Grundig sjekk med røntgen og Air-Flow rens.</p><span class="treat__price">Fra 750,-</span><span class="treat__link">/behandling/sjekk →</span></a>
+          <a class="treat" href="#forhandsvisning"><h4>Tannkrone</h4><p>Høypresisjons porselenskrone for skadede tenner.</p><span class="treat__price">Fra 8 489,-</span><span class="treat__link">/behandling/krone →</span></a>
+          <a class="treat" href="#forhandsvisning"><h4>Tannbleking</h4><p>Skånsom, profesjonell bleking for hvitt smil.</p><span class="treat__price">Fra 4 500,-</span><span class="treat__link">/behandling/bleking →</span></a>
+          <a class="treat" href="#forhandsvisning"><h4>Akutt tannlegevakt</h4><p>Rask smertelindring kveld, helg og helligdager.</p><span class="treat__price">Beredskap</span><span class="treat__link">/akutt-vakt →</span></a>
+          <a class="treat" href="#forhandsvisning"><h4>Rotfylling</h4><p>Smertefri rotkanalbehandling med moderne anestesi.</p><span class="treat__price">Fastpris</span><span class="treat__link">/behandling/rotfylling →</span></a>
+          <a class="treat" href="#forhandsvisning"><h4>Periodontitt</h4><p>Systematisk behandling av tannkjøttbetennelse.</p><span class="treat__price">Helfo-støtte</span><span class="treat__link">/behandling/periodontitt →</span></a>
+          <a class="treat" href="#forhandsvisning"><h4>Tannimplantat</h4><p>Permanente tannerstatninger for tapt tann.</p><span class="treat__price">Konsultasjon</span><span class="treat__link">/behandling/implantat →</span></a>
+          <a class="treat" href="#forhandsvisning"><h4>Tannlegeskrekk</h4><p>Rolig tilpasset oppfølging i trygge rammer.</p><span class="treat__price">Tilpasset</span><span class="treat__link">/behandling/tannlegeskrekk →</span></a>
+        </div>
+        <p class="panel__schema"><strong>De resterende 6 behandlingene</strong> (bedøvelse, fasetter, ising, kirurgi, proteser og fylling) får samme mal — én side per behandling, med egen pris og egen FAQ.</p>
+      </article>
+
+      <article class="panel reveal">
+        <p class="panel__label">Panel C · FAQ-trekkspill (med Schema.org-integrasjon) · Skisse C</p>
+        <h3>Ofte stilte spørsmål for pasienter og AI-søkemotorer</h3>
+        <div class="faq" id="faq">
+          <div class="faq__item open">
+            <button class="faq__q" aria-expanded="true">Når er tannlegevakten åpen, og hvordan bestiller jeg akutt time?<span class="faq__icon" aria-hidden="true">+</span></button>
+            <div class="faq__a"><p>Vår tannlegevakt er tilgjengelig mandag til søndag, inkludert kvelder og helligdager i Festningsgata 39. <strong>Ring 940 99 933</strong> ved akutte smerter eller tannskader for rask time samme dag.</p></div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">Hva koster en førstegangsundersøkelse hos DMDL Tannklinikk?<span class="faq__icon" aria-hidden="true">+</span></button>
+            <div class="faq__a"><p>Vi tilbyr en fullstendig ny pasient-sjekk med røntgenbilder og Air-Flow rens til en fast pris på <strong>750 kr</strong>. Du får alltid et skriftlig kostnadsoverslag før videre behandling igangsettes.</p></div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">Har jeg krav på Helfo-refusjon for tannbehandling?<span class="faq__icon" aria-hidden="true">+</span></button>
+            <div class="faq__a"><p>Ja, pasienter med periodontitt (tannkjøttsykdom), sterkt tannslitasje eller visse medisinske tilstander kan ha krav på Helfo-refusjon. Klinikken hjelper deg med dokumentasjonen som trengs.</p></div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" aria-expanded="false">Hva gjør dere for pasienter med tannlegeskrekk?<span class="faq__icon" aria-hidden="true">+</span></button>
+            <div class="faq__a"><p>Vi setter av ekstra tid, forklarer alle steg på forhånd og benytter moderne, skånsom lokalbedøvelse — slik at du alltid vet hva som skjer, og kan stoppe når du trenger en pause.</p></div>
+          </div>
+        </div>
+        <p class="panel__schema"><strong>Schema.org:</strong> Hvert spørsmål publiseres med FAQPage-strukturert data, slik at Google og AI-søkemotorer kan sitere svarene direkte — det er slik klinikken blir synlig i AI-svar.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 7 · Deres egne priser -->
+<section id="priser" aria-labelledby="priser-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Verifiserte prispunkter · dmdl.no</p>
+      <h2 id="priser-h">Deres egne priser: Svært konkurransedyktige</h2>
+      <p>Disse prisene er hentet direkte fra dmdl.no. De representerer sterk verdi i Kristiansand-markedet — og de fortjener å bli sett.</p>
+    </div>
+    <div class="prices__grid">
+      <article class="price-card reveal">
+        <p class="price-card__kicker">Innledende sjekk</p>
+        <p class="price-card__amount">750 <small>kr</small></p>
+        <p class="price-card__name">Pakke for nye pasienter</p>
+        <p>Inkluderer komplett klinisk undersøkelse, nødvendige digitale røntgenbilder og profesjonell Air-Flow rens.</p>
+        <p class="price-card__src">Verifisert fra dmdl.no</p>
+      </article>
+      <article class="price-card price-card--featured reveal">
+        <p class="price-card__kicker">Kampanje</p>
+        <p class="price-card__amount">4 500 <small>kr</small></p>
+        <p class="price-card__name">Skånsom tannbleking</p>
+        <p>Profesjonelt tilpasset blekesett utført og overvåket av autorisert tannlege for trygt og varig resultat.</p>
+        <p class="price-card__src">Verifisert fra dmdl.no</p>
+      </article>
+      <article class="price-card reveal">
+        <p class="price-card__kicker">Restaurering</p>
+        <p class="price-card__amount">8 489 <small>kr</small></p>
+        <p class="price-card__name">Porselenskrone (alt-inkludert)</p>
+        <p>Komplett behandling med forberedelse, avtrykk/skanning, midlertidig krone, permanent sementering og oppfølging.</p>
+        <p class="price-card__src">Verifisert fra dmdl.no</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · Neste steg -->
+<section class="next" id="neste-steg" aria-labelledby="neste-steg-h">
+  <div class="wrap">
+    <div class="next__grid">
+      <div class="reveal">
+        <p class="eyebrow eyebrow--light">Uforpliktende oppfølging</p>
+        <h2 id="neste-steg-h" style="margin-top:14px">Svar på e-posten vår — 15 minutter er nok til å gå gjennom funnene.</h2>
+        <p class="lede">Vi har klargjort en teknisk tiltaksplan som fjerner treningsmalen, etablerer de 12 behandlingssidene og gjør klinikken synlig for både Google og AI-søkemotorer. Alt som trengs nå, er et kort møte.</p>
+        <div class="next__actions">
+          <a class="btn btn--coral" href="mailto:contact@tiyandegital.com?subject=15%20min%20gjennomgang%20%E2%80%94%20DMDL%20Tannklinikk">Avtal 15 min gjennomgang</a>
+          <a class="btn btn--ghost" href="tel:+4794099933" style="border-color:var(--sand);color:var(--sand)">Ring 940 99 933</a>
+        </div>
+      </div>
+      <aside class="contact reveal" aria-label="Kontaktinformasjon">
+        <h3>Kontaktinformasjon <span data-biz>DMDL Tannklinikk</span></h3>
+        <div class="contact__row"><span class="contact__k">Adresse</span><span>Festningsgata 39, 2. etg.<br>4611 Kristiansand (Kvadraturen)</span></div>
+        <div class="contact__row"><span class="contact__k">Telefon</span><span><a href="tel:+4794099933">940 99 933</a></span></div>
+        <div class="contact__row"><span class="contact__k">E-post</span><span><a href="mailto:post@dmdl.no">post@dmdl.no</a></span></div>
+        <div class="contact__row"><span class="contact__k">Akuttvakt</span><span>Mandag–søndag, kveld og helligdager</span></div>
+        <div class="contact__row"><span class="contact__k">Org.nr</span><span>[PLACEHOLDER]</span></div>
+        <p class="contact__team"><strong>Faglig ledelse:</strong> Tannlege Dmitrij Chaustovic (utdannet Vinnitsa 2011, MNTF)<br>Tannlege Tor Erling Jahnsen (35+ års erfaring)<br>Assistent: Noori Malik</p>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p class="footer__brand"><span data-biz>DMDL Tannklinikk</span> &amp; Tannlegevakt</p>
+    <p class="footer__note">Uavhengig GEO/SEO-revisjon og digital synlighetsdiagnostikk utført for tannhelsetjenester i Kristiansand.</p>
+    <p class="footer__note">Utarbeidet av Tiyan Digital — demo/utkast, ikke en offisiell side for <span data-biz>DMDL Tannklinikk</span>.</p>
+    <nav class="footer__links" aria-label="Bunnlenker">
+      <a href="#metodikk">Konfidensialitet</a>
+      <a href="#metodikk">Metodikk</a>
+      <a href="#priser">Dataeksport</a>
+      <a href="#vakt">Kristiansand nødberedskap</a>
+      <a href="#vakt">Akuttvakt mandag–søndag inkl. helligdager</a>
+    </nav>
+    <p class="method" id="metodikk"><strong>Metodikk:</strong> Revisjonen bygger utelukkende på offentlig tilgjengelige sider på dmdl.no, lest 6. november 2026. Ingen tall, rangeringer eller anmeldelser er oppfunnet — alt som ikke er verifisert, er merket [PLACEHOLDER]. Denne siden samler ikke inn persondata og bruker ingen informasjonskapsler.</p>
+    <p class="footer__legal">© 2026 <span data-biz>DMDL Tannklinikk</span> Kristiansand · Utarbeidet av Tiyan Digital</p>
+  </div>
+</footer>
+
+<script>
+/* Business name as ONE swappable constant — change here, it updates every [data-biz] span. */
+const BUSINESS_NAME = "DMDL Tannklinikk";
+document.querySelectorAll("[data-biz]").forEach(function (el) { el.textContent = BUSINESS_NAME; });
+
+/* FAQ accordion (Panel C): one open at a time, first open by default. */
+(function () {
+  var items = document.querySelectorAll(".faq__item");
+  function setOpen(item, open) {
+    var btn = item.querySelector(".faq__q");
+    var ans = item.querySelector(".faq__a");
+    item.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    ans.style.maxHeight = open ? ans.scrollHeight + "px" : "0px";
+  }
+  items.forEach(function (item) {
+    var btn = item.querySelector(".faq__q");
+    btn.addEventListener("click", function () {
+      var willOpen = !item.classList.contains("open");
+      items.forEach(function (it) { setOpen(it, false); });
+      if (willOpen) setOpen(item, true);
+    });
+  });
+  var first = document.querySelector(".faq__item.open");
+  if (first) setOpen(first, true);
+  window.addEventListener("resize", function () {
+    var open = document.querySelector(".faq__item.open .faq__a");
+    if (open) open.style.maxHeight = open.scrollHeight + "px";
+  });
+})();
+
+/* Calm reveal on scroll; content is fully visible without JS (see CSS). */
+(function () {
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  /* Safety net: nothing may stay invisible (slow observer, full-page capture, odd viewport). */
+  setTimeout(function () {
+    document.querySelectorAll(".reveal:not(.in)").forEach(function (el) { el.classList.add("in"); });
+  }, 2000);
+})();
+</script>
+</body>
+</html>
